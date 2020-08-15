@@ -23,6 +23,8 @@ class Weather
     }
 
     /**
+     * 获取天气
+     *
      * @param  mixed   $city
      * @param  string  $type
      * @param  string  $format
@@ -32,7 +34,7 @@ class Weather
      * @throws InvalidArgumentException
      * @throws GuzzleException
      */
-    public function getWeather($city, string $type = 'base', string $format = 'json')
+    public function getWeather($city, $type = 'base', $format = 'json')
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
