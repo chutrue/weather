@@ -14,7 +14,13 @@ use PHPUnit\Framework\TestCase;
 
 class WeatherTest extends TestCase
 {
-    // 检查 $type 参数
+    /**
+     * 检查 $type 参数
+     *
+     * @throws GuzzleException
+     * @throws HttpException
+     * @throws InvalidArgumentException
+     */
     public function testGetWeatherWithInvalidType()
     {
         $w = new Weather('mock-key');
@@ -30,7 +36,13 @@ class WeatherTest extends TestCase
         $this->fail('Failed to assert getWeather throw exception with invalid argument.');
     }
 
-    // 检查 $format 参数
+    /**
+     * 检查 $format 参数
+     *
+     * @throws GuzzleException
+     * @throws HttpException
+     * @throws InvalidArgumentException
+     */
     public function testGetWeatherWithInvalidFormat()
     {
         $w = new Weather('mock-key');
@@ -50,7 +62,6 @@ class WeatherTest extends TestCase
 
     public function testGetWeather()
     {
-        // json
         $response = new Response(200, [], '{"success": true}');
         $client = \Mockery::mock(Client::class);
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
@@ -67,7 +78,6 @@ class WeatherTest extends TestCase
 
         $this->assertSame(['success' => true], $w->getWeather('深圳'));
 
-        // xml
         $response = new Response(200, [], '<hello>content</hello>');
         $client = \Mockery::mock(Client::class);
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [

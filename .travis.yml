@@ -6,9 +6,8 @@ php:  # 需要测试的版本
   - 7.1
   - 7.2
   - 7.3
-  - 7.4
 
-dist: trusty   # 系统版本
+dist: trusty # 系统版本
 sudo: false  # 是否使用 sudo 模式
 
 # 执行前需要运行的命令
