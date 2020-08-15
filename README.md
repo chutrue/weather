@@ -1,9 +1,10 @@
-<h1 align="center"> weather </h1>
+<h1 align="center"> Weather </h1>
 
 <p align="center"> 基于 <a target="_blank" href="https://lbs.amap.com/api/webservice/guide/api/weatherinfo">高德开放平台</a> 的 PHP 天气信息组件。</p>
 
 [![Build Status](https://travis-ci.org/chutrue/weather.svg?branch=master)](https://travis-ci.org/chutrue/weather)
-[![Latest Stable Version](https://poser.pugx.org/phpunit/phpunit/v)](//packagist.org/packages/phpunit/phpunit) [![Total Downloads](https://poser.pugx.org/phpunit/phpunit/downloads)](//packagist.org/packages/phpunit/phpunit) [![Latest Unstable Version](https://poser.pugx.org/phpunit/phpunit/v/unstable)](//packagist.org/packages/phpunit/phpunit) [![License](https://poser.pugx.org/phpunit/phpunit/license)](//packagist.org/packages/phpunit/phpunit)
+[![Latest Stable Version](https://poser.pugx.org/chutrue/weather/v)](//packagist.org/packages/chutrue/weather) [![Total Downloads](https://poser.pugx.org/chutrue/weather/downloads)](//packagist.org/packages/chutrue/weather) [![Latest Unstable Version](https://poser.pugx.org/chutrue/weather/v/unstable)](//packagist.org/packages/chutrue/weather) [![License](https://poser.pugx.org/chutrue/weather/license)](//packagist.org/packages/chutrue/weather)
+
 ## Installing
 
 ```shell
