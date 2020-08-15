@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the chutrue/weather.
+ *
+ * (c) chutrue <759825420@qq.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Chutrue\Weather;
 
 use Chutrue\Weather\Exceptions\HttpException;
@@ -8,9 +17,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * Class Weather
- *
- * @package Chutrue\Weather
+ * Class Weather.
  */
 class Weather
 {
@@ -23,13 +30,14 @@ class Weather
     }
 
     /**
-     * 获取天气
+     * 获取天气.
      *
-     * @param  mixed   $city
-     * @param  string  $type
-     * @param  string  $format
+     * @param mixed  $city
+     * @param string $type
+     * @param string $format
      *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      * @throws GuzzleException
@@ -39,17 +47,17 @@ class Weather
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
         $query = \array_filter([
-            'key'        => $this->key,
-            'city'       => $city,
-            'output'     => $format,
+            'key' => $this->key,
+            'city' => $city,
+            'output' => $format,
             'extensions' => $type,
         ]);
 
@@ -65,12 +73,13 @@ class Weather
     }
 
     /**
-     * 获取实况天气
+     * 获取实况天气.
      *
-     * @param  mixed   $city
-     * @param  string  $format
+     * @param mixed  $city
+     * @param string $format
      *
      * @return mixed|string
+     *
      * @throws GuzzleException
      * @throws HttpException
      * @throws InvalidArgumentException
@@ -81,12 +90,13 @@ class Weather
     }
 
     /**
-     * 获取预报天气
+     * 获取预报天气.
      *
-     * @param  mixed   $city
-     * @param  string  $format
+     * @param mixed  $city
+     * @param string $format
      *
      * @return mixed|string
+     *
      * @throws GuzzleException
      * @throws HttpException
      * @throws InvalidArgumentException
@@ -97,7 +107,7 @@ class Weather
     }
 
     /**
-     * 获取客户端实例
+     * 获取客户端实例.
      *
      * @return Client
      */
@@ -107,9 +117,7 @@ class Weather
     }
 
     /**
-     * 设置客户端配置
-     *
-     * @param  array  $options
+     * 设置客户端配置.
      */
     public function setGuzzleOptions(array $options)
     {
