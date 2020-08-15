@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the chutrue/weather.
+ *
+ * (c) chutrue <759825420@qq.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Chutrue\Weather\Tests;
 
 use Chutrue\Weather\Exceptions\HttpException;
@@ -15,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 class WeatherTest extends TestCase
 {
     /**
-     * 检查 $type 参数
+     * 检查 $type 参数.
      *
      * @throws GuzzleException
      * @throws HttpException
@@ -37,7 +46,7 @@ class WeatherTest extends TestCase
     }
 
     /**
-     * 检查 $format 参数
+     * 检查 $format 参数.
      *
      * @throws GuzzleException
      * @throws HttpException
@@ -66,9 +75,9 @@ class WeatherTest extends TestCase
         $client = \Mockery::mock(Client::class);
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
             'query' => [
-                'key'        => 'mock-key',
-                'city'       => '深圳',
-                'output'     => 'json',
+                'key' => 'mock-key',
+                'city' => '深圳',
+                'output' => 'json',
                 'extensions' => 'base',
             ],
         ])->andReturn($response);
@@ -82,10 +91,10 @@ class WeatherTest extends TestCase
         $client = \Mockery::mock(Client::class);
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
             'query' => [
-                'key'        => 'mock-key',
-                'city'       => '深圳',
+                'key' => 'mock-key',
+                'city' => '深圳',
                 'extensions' => 'all',
-                'output'     => 'xml',
+                'output' => 'xml',
             ],
         ])->andReturn($response);
 
