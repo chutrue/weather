@@ -147,6 +147,8 @@ WEATHER_API_KEY=c7cf2c2a538f89108b8071325a55b5d8
 Route::get('weather/{city}', function ($city,\Chutrue\Weather\Weather $weather) {
     return $weather->getLiveWeather($city);
     //return $weather->getForecastsWeather($city);
+    //return app('weather')->getLiveWeather($city);
+    //return app('weather')->getForecastsWeather($city);
 });
 ```
 
