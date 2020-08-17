@@ -128,32 +128,6 @@ $response = $weather->getForecastsWeather('深圳');
 }
 ```
 
-### 在Laravel环境中的使用
-
-在 `config/services.php` 中添加
-```shell script
-    ...
-    ...
-    ...
-    'weather' => [
-        'key' => env('WEATHER_API_KEY'),
-    ],
-```
-在 `.env` 中添加
-```shell script
-WEATHER_API_KEY=c7cf2c2a538f89108b8071325a55b5d8
-```
-
-在 `routes/web.php` 中添加
-```php
-Route::get('weather/{city}', function ($city,\Chutrue\Weather\Weather $weather) {
-    return $weather->getLiveWeather($city);
-    //return $weather->getForecastsWeather($city);
-    //return app('weather')->getLiveWeather($city);
-    //return app('weather')->getForecastsWeather($city);
-});
-```
-
 参数说明
 
 ```shell
