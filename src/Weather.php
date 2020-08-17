@@ -32,32 +32,31 @@ class Weather
     /**
      * 获取天气.
      *
-     * @param mixed  $city
-     * @param string $type
-     * @param string $format
+     * @param  mixed   $city
+     * @param  string  $type
+     * @param  string  $format
      *
      * @return mixed|string
      *
      * @throws HttpException
      * @throws InvalidArgumentException
-     * @throws GuzzleException
      */
     public function getWeather($city, $type = 'base', $format = 'json')
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: '.$format);
+            throw new InvalidArgumentException('Invalid response format: ' . $format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
+            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
         }
 
         $query = \array_filter([
-            'key' => $this->key,
-            'city' => $city,
-            'output' => $format,
+            'key'        => $this->key,
+            'city'       => $city,
+            'output'     => $format,
             'extensions' => $type,
         ]);
 
@@ -65,18 +64,17 @@ class Weather
             $response = $this->getHttpClient()->get($url, [
                 'query' => $query,
             ])->getBody()->getContents();
-
             return 'json' === $format ? \json_decode($response, true) : $response;
-        } catch (\Exception $exception) {
-            throw new HttpException($exception->getMessage(), $exception->getCode(), $exception);
+        } catch (GuzzleException $guzzleException) {
+            throw new HttpException($guzzleException->getMessage(), $guzzleException->getCode(), $guzzleException);
         }
     }
 
     /**
      * 获取实况天气.
      *
-     * @param mixed  $city
-     * @param string $format
+     * @param  mixed   $city
+     * @param  string  $format
      *
      * @return mixed|string
      *
@@ -92,8 +90,8 @@ class Weather
     /**
      * 获取预报天气.
      *
-     * @param mixed  $city
-     * @param string $format
+     * @param  mixed   $city
+     * @param  string  $format
      *
      * @return mixed|string
      *
