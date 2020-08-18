@@ -65,6 +65,8 @@ class Weather
                 'query' => $query,
             ])->getBody()->getContents();
             return 'json' === $format ? \json_decode($response, true) : $response;
+        } catch (\Exception $exception) {
+            throw new HttpException($exception->getMessage(), $exception->getCode(), $exception);
         } catch (GuzzleException $guzzleException) {
             throw new HttpException($guzzleException->getMessage(), $guzzleException->getCode(), $guzzleException);
         }
@@ -78,7 +80,6 @@ class Weather
      *
      * @return mixed|string
      *
-     * @throws GuzzleException
      * @throws HttpException
      * @throws InvalidArgumentException
      */
@@ -95,7 +96,6 @@ class Weather
      *
      * @return mixed|string
      *
-     * @throws GuzzleException
      * @throws HttpException
      * @throws InvalidArgumentException
      */

@@ -5,8 +5,7 @@
  *
  * (c) chutrue <759825420@qq.com>
  *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
+ * This source file is subject to the MIT license that is bundled.
  */
 
 namespace Chutrue\Weather\Exceptions;
